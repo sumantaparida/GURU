@@ -8,6 +8,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import withSizes from 'react-sizes';
 import { Helmet } from 'react-helmet';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
@@ -15,13 +16,21 @@ import { compose } from 'redux';
 import injectReducer from 'utils/injectReducer';
 import makeSelectSignin from './selectors';
 import reducer from './reducer';
+import SignIn from '../../components/SignIn/Loadable';
+import RegistorNav from '../../components/RegistorNav/Loadable';
 import { SigninContainer } from './style';
 import splashIMG from '../../images/splash.png';
 import logoIMG from '../../images/logo.svg';
 
 /* eslint-disable react/prefer-stateless-function */
 export class Signin extends React.PureComponent {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
   render() {
+    const { isMobile } = this.props;
     return (
       <SigninContainer>
         <Helmet>
@@ -31,22 +40,27 @@ export class Signin extends React.PureComponent {
         <div className="wrapper">
           <div className="leftArticle">
             <div className="navigation">
-              <div className="logo">
-                <img src={logoIMG} alt="" title="" />
-              </div>
+              {!isMobile ? (
+                <div className="logo">
+                  <img src={logoIMG} alt="" title="" />
+                </div>
+              ) : (
+                <RegistorNav />
+              )}
             </div>
             <div className="content">
               <div className="blackBox">
-                <h4>ACCESS YOUR ACCOUNT</h4>
-                <span>Start learning marketing courses</span>
-                <input type="text" placeholder="Phone Number *" />
-                <button type="button">SUBMIT</button>
+                <h4 className="_hText">ACCESS YOUR ACCOUNT</h4>
+                <span className="_decText">Start learning marketing courses</span>
+                <SignIn />
               </div>
             </div>
           </div>
-          <div className="rightArticle">
-            <img src={splashIMG} alt="" title="" />
-          </div>
+          {!isMobile ? (
+            <div className="rightArticle">
+              <img src={splashIMG} alt="" title="" />
+            </div>
+          ) : null}
         </div>
       </SigninContainer>
     );
@@ -55,6 +69,7 @@ export class Signin extends React.PureComponent {
 
 Signin.propTypes = {
   dispatch: PropTypes.func.isRequired,
+  isMobile: PropTypes.bool,
 };
 
 const mapStateToProps = createStructuredSelector({
@@ -67,6 +82,10 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
+const mapSizesToProps = ({ width }) => ({
+  isMobile: width < 768,
+});
+
 const withConnect = connect(
   mapStateToProps,
   mapDispatchToProps,
@@ -77,4 +96,4 @@ const withReducer = injectReducer({ key: 'signin', reducer });
 export default compose(
   withReducer,
   withConnect,
-)(Signin);
+)(withSizes(mapSizesToProps)(Signin));

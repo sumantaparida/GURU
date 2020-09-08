@@ -6,13 +6,33 @@ const GlobalStyle = createGlobalStyle`
 ${GlobalFontStyles};
 html,
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Rubik', sans-serif;
   font-weight: 400;
   height: 100%;
   width: 100%;
 }
+input {
+  background-color: #ffffff;
+  color: #727B87;
+  border-radius: 4px;
+  padding: 16px 17px;
+  &:focus {
+    outline: none;
+  }
+}
+::placeholder {
+  color: #727B87;
+  font-size: 12px;
+}
+button {
+  padding: 14px 17px !important;
+  & > span {
+    font-size: 12px;
+    font-weight: 600;
+  }
+}
 #app {
-  background-color: #fafafa;
+  background-color: #ffffff;
   ${globalStyle.flex};
   ${globalStyle.column};
   ${globalStyle.flexstretch};

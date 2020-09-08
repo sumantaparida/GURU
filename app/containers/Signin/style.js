@@ -15,7 +15,9 @@ export const SigninContainer = styled.section`
   }
   .leftArticle {
     flex: 1;
-    padding-left: 64px;
+    @media (min-width: ${globalStyle.small}) {
+      padding-left: 64px;
+    }
     .navigation {
       ${globalStyle.flex};
       ${globalStyle.column};
@@ -27,14 +29,44 @@ export const SigninContainer = styled.section`
     .content {
       ${globalStyle.flex};
       ${globalStyle.column};
-      padding: 22px 82px;
+      padding: 24px 20px;
+      @media (min-width: ${globalStyle.small}) {
+        padding-left: 64px;
+        padding: 22px 82px;
+      }
       flex: 1;
       .blackBox {
         ${globalStyle.flex};
         ${globalStyle.column};
-        min-height: 500px;
-        background-color: #2e323d;
-        border-radius: 5px;
+        @media (min-width: ${globalStyle.small}) {
+          padding: 30px;
+          border-radius: 5px;
+          min-height: 500px;
+          background-color: #2e323d;
+          align-items: center;
+        }
+        ._hText,
+        ._decText {
+          @media (min-width: ${globalStyle.small}) {
+            color: #ffffff;
+          }
+        }
+        ._hText {
+          margin: 0px;
+          line-height: 17px;
+          font-size: 14px;
+          font-weight: 600;
+          @media (min-width: ${globalStyle.small}) {
+            font-size: 18px;
+          }
+        }
+        ._decText {
+          font-size: 14px;
+          font-weight: 300;
+          @media (min-width: ${globalStyle.small}) {
+            font-size: 18px;
+          }
+        }
       }
     }
   }
