@@ -45,28 +45,6 @@ export const SigninContainer = styled.section`
           background-color: #2e323d;
           align-items: center;
         }
-        ._hText,
-        ._decText {
-          @media (min-width: ${globalStyle.small}) {
-            color: #ffffff;
-          }
-        }
-        ._hText {
-          margin: 0px;
-          line-height: 17px;
-          font-size: 14px;
-          font-weight: 600;
-          @media (min-width: ${globalStyle.small}) {
-            font-size: 18px;
-          }
-        }
-        ._decText {
-          font-size: 14px;
-          font-weight: 300;
-          @media (min-width: ${globalStyle.small}) {
-            font-size: 18px;
-          }
-        }
       }
     }
   }

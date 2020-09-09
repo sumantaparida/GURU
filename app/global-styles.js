@@ -12,7 +12,7 @@ body {
   width: 100%;
 }
 input {
-  background-color: #ffffff;
+  background-color: #F7F7F7;
   color: #727B87;
   border-radius: 4px;
   padding: 16px 17px;
@@ -32,11 +32,11 @@ button {
   }
 }
 #app {
-  background-color: #ffffff;
+  background-color: #E5E5E5;
   ${globalStyle.flex};
   ${globalStyle.column};
   ${globalStyle.flexstretch};
-  height: 100%;
+  min-height: 100%;
 }
 section {
   ${globalStyle.flexstretch};

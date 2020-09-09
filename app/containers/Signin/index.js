@@ -17,7 +17,11 @@ import injectReducer from 'utils/injectReducer';
 import makeSelectSignin from './selectors';
 import reducer from './reducer';
 import SignIn from '../../components/SignIn/Loadable';
+import RegistorFrom from '../../components/RegistorFrom/Loadable';
 import RegistorNav from '../../components/RegistorNav/Loadable';
+import Authentication from '../../components/Authentication/Loadable';
+import Registration from '../../components/Registration/Loadable';
+import Stapes from '../../components/Stapes/Loadable';
 import { SigninContainer } from './style';
 import splashIMG from '../../images/splash.png';
 import logoIMG from '../../images/logo.svg';
@@ -49,10 +53,12 @@ export class Signin extends React.PureComponent {
               )}
             </div>
             <div className="content">
+              {!isMobile ? <Stapes /> : null}
               <div className="blackBox">
-                <h4 className="_hText">ACCESS YOUR ACCOUNT</h4>
-                <span className="_decText">Start learning marketing courses</span>
-                <SignIn />
+                {undefined ? <SignIn /> : null}
+                {undefined ? <Authentication /> : null}
+                {undefined ? <RegistorFrom /> : null}
+                <Registration />
               </div>
             </div>
           </div>

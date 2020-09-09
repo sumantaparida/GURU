@@ -15,7 +15,6 @@ import GlobalStyle from '../../global-styles';
 
 import NotFoundPage from '../NotFoundPage/Loadable';
 import Signin from '../Signin/Loadable';
-import Signup from '../Signup/Loadable';
 import { AppContainer } from './style';
 
 // const GlobalStyle = lazy(() => import('../../global-styles'));
@@ -74,7 +73,7 @@ export default class App extends React.Component {
           <AppContainer>
             <Switch>
               <Route exact path="/signin" component={Signin} />
-              <Route exact path="/signup" component={Signup} />
+              <Route exact path="/signup" component={Signin} />
               <Route exact path="*" component={NotFoundPage} />
             </Switch>
           </AppContainer>

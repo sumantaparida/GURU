@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import globalStyle from 'Global/styles/base';
-export const SignInContainer = styled.div`
+export const AuthenticationContainer = styled.div`
   ${globalStyle.flex};
   ${globalStyle.column};
   width: 100%;
@@ -14,10 +14,20 @@ export const SignInContainer = styled.div`
     ${globalStyle.column};
     align-self: stretch;
   }
+  .otpWrapper {
+    ${globalStyle.flex};
+    ${globalStyle.row};
+    margin: 0px -7px;
+    input {
+      width: 20%;
+      margin-left: 7px;
+      margin-right: 7px;
+      text-align: center;
+    }
+  }
   input {
     ${globalStyle.flex};
     margin-bottom: 12px;
-    align-self: stretch;
     @media (max-width: ${globalStyle.small}) {
       background: #f7f7f7;
     }

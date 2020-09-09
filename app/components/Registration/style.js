@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 import globalStyle from 'Global/styles/base';
-export const SignInContainer = styled.div`
+export const RegistrationContainer = styled.div`
   ${globalStyle.flex};
   ${globalStyle.column};
   width: 100%;
   @media (min-width: ${globalStyle.small}) {
-    max-width: 350px;
+    max-width: 500px;
     align-items: center;
   }
   ._wrapper {
@@ -18,9 +18,6 @@ export const SignInContainer = styled.div`
     ${globalStyle.flex};
     margin-bottom: 12px;
     align-self: stretch;
-    @media (max-width: ${globalStyle.small}) {
-      background: #f7f7f7;
-    }
   }
   button {
     margin-bottom: 12px;
@@ -55,6 +52,25 @@ export const SignInContainer = styled.div`
     font-weight: 300;
     @media (min-width: ${globalStyle.small}) {
       font-size: 18px;
+    }
+  }
+  ._twoComumnWrapper {
+    box-sizing: border-box;
+    ${globalStyle.flex};
+    ${globalStyle.row};
+    margin: 0px -10px 12px -10px;
+    input {
+      margin: 0px 10px;
+      width: 50%;
+    }
+  }
+  ._twoRowWrapper {
+    box-sizing: border-box;
+    ${globalStyle.flex};
+    ${globalStyle.column};
+    margin: 0px -10px 0px -10px;
+    input {
+      margin: 0px 10px 12px 10px;
     }
   }
 `;
